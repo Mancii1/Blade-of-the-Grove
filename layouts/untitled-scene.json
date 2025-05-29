@@ -18,7 +18,7 @@
     "gridColor": 10401023,
     "gridAlpha": 0.8,
     "snap": true,
-    "zoomFactor": 0.39251611754882265,
+    "zoomFactor": 0.8416428125373132,
     "windowMask": false
   },
   "objectsGroups": [
@@ -36,6 +36,31 @@
         },
         {
           "name": "Fire"
+        }
+      ]
+    },
+    {
+      "name": "Enemies",
+      "objects": [
+        {
+          "name": "redOctorok"
+        },
+        {
+          "name": "BlueOctorok"
+        },
+        {
+          "name": "Projectile"
+        }
+      ]
+    },
+    {
+      "name": "Octoroks",
+      "objects": [
+        {
+          "name": "BlueOctorok"
+        },
+        {
+          "name": "redOctorok"
         }
       ]
     }
@@ -1081,7 +1106,7 @@
       "persistentUuid": "eddf54b6-285c-44b3-8d57-366d9b23bd46",
       "width": 32,
       "x": 96,
-      "y": 24,
+      "y": 32,
       "zOrder": 63,
       "numberProperties": [],
       "stringProperties": [],
@@ -1119,6 +1144,97 @@
       "numberProperties": [],
       "stringProperties": [],
       "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": true,
+      "depth": 1,
+      "height": 32,
+      "keepRatio": true,
+      "layer": "",
+      "name": "spawnEnemy",
+      "persistentUuid": "cdac9dee-1e57-41fc-bc5d-92c4d6292e60",
+      "width": 32,
+      "x": -320,
+      "y": 224,
+      "zOrder": 66,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": true,
+      "depth": 1,
+      "height": 32,
+      "keepRatio": true,
+      "layer": "",
+      "name": "spawnEnemy",
+      "persistentUuid": "d44bdaff-99bd-473c-8a50-f08857aed76f",
+      "width": 32,
+      "x": -256,
+      "y": 96,
+      "zOrder": 67,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": true,
+      "depth": 1,
+      "height": 32,
+      "keepRatio": true,
+      "layer": "",
+      "name": "spawnEnemy",
+      "persistentUuid": "b7950ae1-5442-4a34-9348-0ef117e198e7",
+      "width": 32,
+      "x": -352,
+      "y": 96,
+      "zOrder": 68,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": true,
+      "depth": 1,
+      "height": 32,
+      "keepRatio": true,
+      "layer": "",
+      "name": "spawnEnemy",
+      "persistentUuid": "9ab30450-83e0-4203-a85a-453246c0b04f",
+      "width": 32,
+      "x": -160,
+      "y": 160,
+      "zOrder": 69,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": [
+        {
+          "name": "Enemy",
+          "type": "string",
+          "value": "BlueOctorok"
+        }
+      ]
+    },
+    {
+      "angle": 0,
+      "customSize": true,
+      "depth": 96,
+      "height": 32,
+      "keepRatio": true,
+      "layer": "HUD",
+      "name": "PixelHeartBar",
+      "persistentUuid": "e254b4e3-6322-4fa8-93d7-1c3369c86886",
+      "width": 96,
+      "x": 64,
+      "y": 0,
+      "zOrder": 26,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
     }
   ],
   "objects": [
@@ -1138,10 +1254,51 @@
           "name": "Action",
           "type": "string",
           "value": "Idle"
+        },
+        {
+          "name": "Attack",
+          "type": "number",
+          "value": 0
         }
       ],
       "effects": [],
       "behaviors": [
+        {
+          "name": "FlashColor",
+          "type": "Flash::FlashColor",
+          "HalfPeriodTime": 0.1,
+          "IsFlashing": false,
+          "FlashDuration": 0,
+          "TintColor": "\"255;255;255\""
+        },
+        {
+          "name": "Health",
+          "type": "Health::Health",
+          "Health": 3,
+          "CurrentHealth": 0,
+          "MaxHealth": 3,
+          "DamageCooldown": 1,
+          "AllowOverHealing": false,
+          "IsHealthJustDamaged": false,
+          "DamageToBeApplied": 0,
+          "HitAtLeastOnce": false,
+          "ChanceToDodge": 0,
+          "IsJustDodged": false,
+          "HealToBeApplied": 0,
+          "HealthRegenRate": 0,
+          "HealthRegenDelay": 0,
+          "IsJustHealed": false,
+          "CurrentShieldPoints": 2.0247e-320,
+          "MaxShieldPoints": 0,
+          "ShieldDuration": 5,
+          "ShieldRegenRate": 0,
+          "BlockExcessDamage": false,
+          "ShieldRegenDelay": 0,
+          "IsShieldJustDamaged": false,
+          "ShieldDamageTaken": 2.0247e-320,
+          "FlatDamageReduction": 0,
+          "PercentDamageReduction": 0
+        },
         {
           "name": "InOnScreen",
           "type": "IsOnScreen::InOnScreen"
@@ -3536,10 +3693,6 @@
       "effects": [],
       "behaviors": [
         {
-          "name": "InOnScreen",
-          "type": "IsOnScreen::InOnScreen"
-        },
-        {
           "name": "Tween",
           "type": "Tween::TweenBehavior"
         }
@@ -3564,10 +3717,10 @@
                     "y": 32
                   },
                   "centerPoint": {
-                    "automatic": true,
+                    "automatic": false,
                     "name": "centre",
-                    "x": 0,
-                    "y": 0
+                    "x": 32,
+                    "y": 32
                   },
                   "customCollisionMask": [
                     [
@@ -3750,6 +3903,684 @@
           ]
         }
       ]
+    },
+    {
+      "adaptCollisionMaskAutomatically": true,
+      "assetStoreId": "",
+      "name": "spawnEnemy",
+      "type": "Sprite",
+      "updateIfNotVisible": false,
+      "variables": [
+        {
+          "name": "Enemy",
+          "type": "string",
+          "value": "redOctorok"
+        }
+      ],
+      "effects": [],
+      "behaviors": [
+        {
+          "name": "InOnScreen",
+          "type": "IsOnScreen::InOnScreen"
+        }
+      ],
+      "animations": [
+        {
+          "name": "NewSprite",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "metadata": "{\"pskl\":{}}",
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "NewSprite10",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 64,
+                        "y": 0
+                      },
+                      {
+                        "x": 64,
+                        "y": 64
+                      },
+                      {
+                        "x": 0,
+                        "y": 64
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "adaptCollisionMaskAutomatically": true,
+      "assetStoreId": "",
+      "name": "redOctorok",
+      "type": "Sprite",
+      "updateIfNotVisible": false,
+      "variables": [
+        {
+          "name": "Atk",
+          "type": "number",
+          "value": 0.5
+        },
+        {
+          "name": "State",
+          "type": "number",
+          "value": 0
+        }
+      ],
+      "effects": [],
+      "behaviors": [
+        {
+          "isFolded": true,
+          "name": "FireBullet",
+          "type": "FireBullet::FireBullet",
+          "FireCooldown": 0.1,
+          "HasJustFired": false,
+          "RotateBullet": true,
+          "FiringArc": 45,
+          "BulletQuantity": 1,
+          "AngleVariance": 0,
+          "BulletSpeedVariance": 0,
+          "AmmoQuantity": 0,
+          "ShotsPerReload": 0,
+          "ReloadDuration": 1,
+          "MaxAmmo": 0,
+          "ShotsBeforeNextReload": 0,
+          "TotalShotsFired": 0,
+          "TotalBulletsCreated": 0,
+          "StartingAmmo": 0,
+          "TotalReloadsCompleted": 0,
+          "UnlimitedAmmo": true,
+          "ReloadInProgress": false,
+          "HeatIncreasePerShot": 0,
+          "HeatLevel": 0,
+          "AutomaticReloading": true,
+          "OverheatDuration": 0,
+          "LinearCoolingRate": 0.1,
+          "ExponentialCoolingRate": 0.3,
+          "BulletLayer": "",
+          "RandomizedAngle": 0
+        },
+        {
+          "isFolded": true,
+          "name": "Health",
+          "type": "Health::Health",
+          "Health": 1,
+          "CurrentHealth": 0,
+          "MaxHealth": 1,
+          "DamageCooldown": 0.25,
+          "AllowOverHealing": false,
+          "IsHealthJustDamaged": false,
+          "DamageToBeApplied": 0,
+          "HitAtLeastOnce": false,
+          "ChanceToDodge": 0,
+          "IsJustDodged": false,
+          "HealToBeApplied": 0,
+          "HealthRegenRate": 0,
+          "HealthRegenDelay": 0,
+          "IsJustHealed": false,
+          "CurrentShieldPoints": 2.0247e-320,
+          "MaxShieldPoints": 0,
+          "ShieldDuration": 5,
+          "ShieldRegenRate": 0,
+          "BlockExcessDamage": false,
+          "ShieldRegenDelay": 0,
+          "IsShieldJustDamaged": false,
+          "ShieldDamageTaken": 2.0247e-320,
+          "FlatDamageReduction": 0,
+          "PercentDamageReduction": 0
+        },
+        {
+          "isFolded": true,
+          "name": "StayOnScreen",
+          "type": "StayOnScreen::StayOnScreen",
+          "MarginTop": 0,
+          "MarginBottom": 0,
+          "MarginLeft": 0,
+          "MarginRight": 0
+        }
+      ],
+      "animations": [
+        {
+          "name": "NewSprite",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "metadata": "{\"pskl\":{}}",
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "NewSprite11",
+                  "points": [
+                    {
+                      "name": "Projectile",
+                      "x": 18,
+                      "y": 16
+                    }
+                  ],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 20,
+                        "y": 9
+                      },
+                      {
+                        "x": 55,
+                        "y": 9
+                      },
+                      {
+                        "x": 55,
+                        "y": 64
+                      },
+                      {
+                        "x": 20,
+                        "y": 64
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "NewSprite12",
+                  "points": [
+                    {
+                      "name": "Projectile",
+                      "x": 18,
+                      "y": 16
+                    }
+                  ],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 20,
+                        "y": 9
+                      },
+                      {
+                        "x": 55,
+                        "y": 9
+                      },
+                      {
+                        "x": 55,
+                        "y": 64
+                      },
+                      {
+                        "x": 20,
+                        "y": 64
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "adaptCollisionMaskAutomatically": true,
+      "assetStoreId": "",
+      "name": "AttackBox",
+      "type": "Sprite",
+      "updateIfNotVisible": false,
+      "variables": [],
+      "effects": [],
+      "behaviors": [],
+      "animations": [
+        {
+          "name": "NewSprite",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "metadata": "{\"pskl\":{}}",
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "NewSprite13",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 8,
+                        "y": 8
+                      },
+                      {
+                        "x": 23,
+                        "y": 8
+                      },
+                      {
+                        "x": 23,
+                        "y": 24
+                      },
+                      {
+                        "x": 8,
+                        "y": 24
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "adaptCollisionMaskAutomatically": true,
+      "assetStoreId": "",
+      "name": "BlueOctorok",
+      "type": "Sprite",
+      "updateIfNotVisible": false,
+      "variables": [
+        {
+          "name": "Atk",
+          "type": "number",
+          "value": 1
+        },
+        {
+          "name": "State",
+          "type": "number",
+          "value": 0
+        }
+      ],
+      "effects": [],
+      "behaviors": [
+        {
+          "isFolded": true,
+          "name": "AdvancedProjectile",
+          "type": "AdvancedProjectile::AdvancedProjectile",
+          "MaxLifetime": 0,
+          "MaxDistanceFromStartingPosition": 0,
+          "MaxSpeed": 0,
+          "MinSpeed": 0,
+          "Acceleration": 0,
+          "StartingSpeed": 0,
+          "DeleteWhenLifetimeExceeded": true,
+          "DeleteWhenDistanceExceeded": true
+        },
+        {
+          "name": "FireBullet",
+          "type": "FireBullet::FireBullet",
+          "FireCooldown": 0.1,
+          "HasJustFired": false,
+          "RotateBullet": true,
+          "FiringArc": 45,
+          "BulletQuantity": 1,
+          "AngleVariance": 0,
+          "BulletSpeedVariance": 0,
+          "AmmoQuantity": 0,
+          "ShotsPerReload": 0,
+          "ReloadDuration": 1,
+          "MaxAmmo": 0,
+          "ShotsBeforeNextReload": 0,
+          "TotalShotsFired": 0,
+          "TotalBulletsCreated": 0,
+          "StartingAmmo": 0,
+          "TotalReloadsCompleted": 0,
+          "UnlimitedAmmo": true,
+          "ReloadInProgress": false,
+          "HeatIncreasePerShot": 0,
+          "HeatLevel": 0,
+          "AutomaticReloading": true,
+          "OverheatDuration": 0,
+          "LinearCoolingRate": 0.1,
+          "ExponentialCoolingRate": 0.3,
+          "BulletLayer": "",
+          "RandomizedAngle": 0
+        },
+        {
+          "isFolded": true,
+          "name": "Health",
+          "type": "Health::Health",
+          "Health": 2,
+          "CurrentHealth": 0,
+          "MaxHealth": 2,
+          "DamageCooldown": 0.25,
+          "AllowOverHealing": false,
+          "IsHealthJustDamaged": false,
+          "DamageToBeApplied": 0,
+          "HitAtLeastOnce": false,
+          "ChanceToDodge": 0,
+          "IsJustDodged": false,
+          "HealToBeApplied": 0,
+          "HealthRegenRate": 0,
+          "HealthRegenDelay": 0,
+          "IsJustHealed": false,
+          "CurrentShieldPoints": 2.0247e-320,
+          "MaxShieldPoints": 0,
+          "ShieldDuration": 5,
+          "ShieldRegenRate": 0,
+          "BlockExcessDamage": false,
+          "ShieldRegenDelay": 0,
+          "IsShieldJustDamaged": false,
+          "ShieldDamageTaken": 2.0247e-320,
+          "FlatDamageReduction": 0,
+          "PercentDamageReduction": 0
+        },
+        {
+          "isFolded": true,
+          "name": "StayOnScreen",
+          "type": "StayOnScreen::StayOnScreen",
+          "MarginTop": 0,
+          "MarginBottom": 0,
+          "MarginLeft": 0,
+          "MarginRight": 0
+        }
+      ],
+      "animations": [
+        {
+          "name": "NewSprite",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "metadata": "{\"pskl\":{}}",
+              "timeBetweenFrames": 0.04,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "NewSprite14",
+                  "points": [
+                    {
+                      "name": "Projectile",
+                      "x": 18,
+                      "y": 16
+                    }
+                  ],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 4,
+                        "y": 6
+                      },
+                      {
+                        "x": 22,
+                        "y": 6
+                      },
+                      {
+                        "x": 22,
+                        "y": 28
+                      },
+                      {
+                        "x": 4,
+                        "y": 28
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "NewSprite15",
+                  "points": [
+                    {
+                      "name": "Projectile",
+                      "x": 18,
+                      "y": 16
+                    }
+                  ],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 4,
+                        "y": 6
+                      },
+                      {
+                        "x": 22,
+                        "y": 6
+                      },
+                      {
+                        "x": 22,
+                        "y": 28
+                      },
+                      {
+                        "x": 4,
+                        "y": 28
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "NewSprite16",
+                  "points": [
+                    {
+                      "name": "Projectile",
+                      "x": 18,
+                      "y": 16
+                    }
+                  ],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 4,
+                        "y": 6
+                      },
+                      {
+                        "x": 22,
+                        "y": 6
+                      },
+                      {
+                        "x": 22,
+                        "y": 28
+                      },
+                      {
+                        "x": 4,
+                        "y": 28
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "assetStoreId": "db57d0bcdc074868304ca46431ac85fcef3f613be5fba73ae0adc26ee2c8629b",
+      "name": "PixelHeartBar",
+      "type": "TiledUnitsBar::TiledUnitsBar",
+      "variant": "",
+      "variables": [],
+      "effects": [],
+      "behaviors": [],
+      "content": {
+        "UnitWidth": 32,
+        "HideBackground": true,
+        "ShowBackground": false
+      },
+      "childrenContent": {
+        "Background": {
+          "bottomMargin": 0,
+          "height": 32,
+          "leftMargin": 0,
+          "rightMargin": 0,
+          "texture": "tiled_Tiled Empty UI Heart.png",
+          "tiled": true,
+          "topMargin": 0,
+          "width": 96
+        },
+        "Bar": {
+          "height": 32,
+          "texture": "tiled_Tiled Empty UI Heart.png2",
+          "width": 96
+        },
+        "FillBar": {
+          "height": 32,
+          "texture": "tiled_Tiled Filler UI Heart.png3",
+          "width": 32
+        }
+      }
+    },
+    {
+      "adaptCollisionMaskAutomatically": true,
+      "assetStoreId": "",
+      "name": "Projectile",
+      "type": "Sprite",
+      "updateIfNotVisible": false,
+      "variables": [
+        {
+          "hasMixedValues": true,
+          "name": "Atk",
+          "persistentUuid": "439f789c-1da1-4f35-8629-6f4aa6f3edc1",
+          "type": "number",
+          "value": 0.5
+        },
+        {
+          "name": "State",
+          "persistentUuid": "efc0e47d-e91d-4c09-878c-9abd17eea02b",
+          "type": "number",
+          "value": 0
+        }
+      ],
+      "effects": [],
+      "behaviors": [],
+      "animations": [
+        {
+          "name": "NewSprite",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "metadata": "{\"pskl\":{}}",
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "NewSprite17",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 16,
+                    "y": 16
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 5
+                      },
+                      {
+                        "x": 32,
+                        "y": 5
+                      },
+                      {
+                        "x": 32,
+                        "y": 32
+                      },
+                      {
+                        "x": 0,
+                        "y": 32
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "objectsFolderStructure": {
@@ -3757,6 +4588,15 @@
     "children": [
       {
         "objectName": "Link"
+      },
+      {
+        "objectName": "Projectile"
+      },
+      {
+        "objectName": "PixelHeartBar"
+      },
+      {
+        "objectName": "BlueOctorok"
       },
       {
         "objectName": "ExitCave"
@@ -3774,25 +4614,34 @@
         "objectName": "MountainTileMap"
       },
       {
-        "objectName": "enterCave"
+        "objectName": "redOctorok"
       },
       {
-        "objectName": "Tree"
+        "objectName": "AttackBox"
+      },
+      {
+        "objectName": "enterCave"
       },
       {
         "objectName": "MountainCaveTileMap"
       },
       {
-        "objectName": "GroundCave"
-      },
-      {
-        "objectName": "OldMan"
+        "objectName": "Fire"
       },
       {
         "objectName": "Sword"
       },
       {
-        "objectName": "Fire"
+        "objectName": "GroundCave"
+      },
+      {
+        "objectName": "Tree"
+      },
+      {
+        "objectName": "OldMan"
+      },
+      {
+        "objectName": "spawnEnemy"
       }
     ]
   },
@@ -3829,6 +4678,44 @@
           "parameters": [
             "Camera"
           ]
+        },
+        {
+          "type": {
+            "value": "Cache"
+          },
+          "parameters": [
+            "spawnEnemy"
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "CanAttack",
+                "True",
+                "="
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberObjectVariable"
+              },
+              "parameters": [
+                "Link",
+                "Attack",
+                "=",
+                "1"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -3848,6 +4735,63 @@
       ],
       "actions": [],
       "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"Space\""
+              ]
+            },
+            {
+              "type": {
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "CanAttack",
+                "True",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetStringObjectVariable"
+              },
+              "parameters": [
+                "Link",
+                "Action",
+                "=",
+                "\"Attack\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ActivateBehavior"
+              },
+              "parameters": [
+                "Link",
+                "TopDownMovement",
+                "yes"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetBooleanVariable"
+              },
+              "parameters": [
+                "StopAnimations",
+                "True",
+                ""
+              ]
+            }
+          ]
+        },
         {
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
@@ -4078,35 +5022,347 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::ForEach",
+      "object": "Octoroks",
+      "conditions": [
+        {
+          "type": {
+            "value": "NumberObjectVariable"
+          },
+          "parameters": [
+            "Octoroks",
+            "State",
+            "=",
+            "0"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "SetNumberObjectVariable"
+          },
+          "parameters": [
+            "Octoroks",
+            "State",
+            "=",
+            "RandomInRange(1,4)"
+          ]
         },
+        {
+          "type": {
+            "value": "ResetObjectTimer"
+          },
+          "parameters": [
+            "Octoroks",
+            "\"ChangeState\""
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [],
+      "actions": []
+    },
+    {
+      "type": "BuiltinCommonInstructions::ForEach",
+      "object": "Octoroks",
+      "conditions": [],
+      "actions": [],
+      "events": [
         {
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
               "type": {
-                "value": "KeyFromTextPressed"
+                "value": "NumberObjectVariable"
               },
               "parameters": [
-                "",
-                "\"Space\""
+                "Octoroks",
+                "State",
+                "=",
+                "1"
               ]
             }
           ],
           "actions": [
             {
               "type": {
-                "value": "SetStringObjectVariable"
+                "value": "SetAngle"
               },
               "parameters": [
-                "Link",
-                "Action",
+                "Octoroks",
                 "=",
-                "\"Attack\""
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "AddForceAL"
+              },
+              "parameters": [
+                "Octoroks",
+                "Octoroks.Angle()",
+                "72",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberObjectVariable"
+              },
+              "parameters": [
+                "Octoroks",
+                "State",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetAngle"
+              },
+              "parameters": [
+                "Octoroks",
+                "=",
+                "90"
+              ]
+            },
+            {
+              "type": {
+                "value": "AddForceAL"
+              },
+              "parameters": [
+                "Octoroks",
+                "Octoroks.Angle()",
+                "72",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberObjectVariable"
+              },
+              "parameters": [
+                "Octoroks",
+                "State",
+                "=",
+                "3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetAngle"
+              },
+              "parameters": [
+                "Octoroks",
+                "=",
+                "180"
+              ]
+            },
+            {
+              "type": {
+                "value": "AddForceAL"
+              },
+              "parameters": [
+                "Octoroks",
+                "Octoroks.Angle()",
+                "72",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberObjectVariable"
+              },
+              "parameters": [
+                "Octoroks",
+                "State",
+                "=",
+                "4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetAngle"
+              },
+              "parameters": [
+                "Octoroks",
+                "=",
+                "270"
+              ]
+            },
+            {
+              "type": {
+                "value": "AddForceAL"
+              },
+              "parameters": [
+                "Octoroks",
+                "Octoroks.Angle()",
+                "72",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberObjectVariable"
+              },
+              "parameters": [
+                "Octoroks",
+                "State",
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetAngle"
+              },
+              "parameters": [
+                "Octoroks",
+                "=",
+                "RandomInRange(1,3)"
+              ]
+            },
+            {
+              "type": {
+                "value": "Wait"
+              },
+              "parameters": [
+                "0.2"
+              ]
+            },
+            {
+              "type": {
+                "value": "FireBullet::FireBullet::Fire"
+              },
+              "parameters": [
+                "Octoroks",
+                "FireBullet",
+                "Octoroks.PointX(\"Projectile\")",
+                "Octoroks.PointY(\"Projectile\")",
+                "Projectile",
+                "Octoroks.Angle()",
+                "72",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Octoroks",
+                "Resizable",
+                "Octoroks.ZOrder()-1"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberObjectVariable"
+              },
+              "parameters": [
+                "Octoroks",
+                "Atk",
+                "=",
+                "Octoroks.Atk"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Octoroks",
+                "Sword",
+                "",
+                "",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "ObjectTimerPaused"
+              },
+              "parameters": [
+                "Octoroks",
+                "\"ChangeState\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "Octoroks",
+                "\"ChangeState\""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberObjectVariable"
+              },
+              "parameters": [
+                "Octoroks",
+                "State",
+                "=",
+                "RandomInRange(1,5)"
               ]
             }
           ]
         }
       ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [],
+      "actions": []
     },
     {
       "type": "BuiltinCommonInstructions::Standard",
@@ -4131,6 +5387,151 @@
             "Camera",
             "",
             "",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "TiledUnitsBar::TiledUnitsBar::SetValue"
+          },
+          "parameters": [
+            "PixelHeartBar",
+            "=",
+            "Link.Health::Health()",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "SeparateFromObjects"
+          },
+          "parameters": [
+            "Octoroks",
+            "Solids",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "CollisionNP"
+          },
+          "parameters": [
+            "Link",
+            "Enemies",
+            "",
+            "",
+            ""
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Health::Health::Hit"
+          },
+          "parameters": [
+            "Link",
+            "Health",
+            "Enemies.Atk",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "AddForceAL"
+          },
+          "parameters": [
+            "Link",
+            "AngleBetweenPositions(Link.X(),Link.Y(),Enemies.X(),Enemies.Y())+180",
+            "2000",
+            "0"
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Health::Health::IsJustDamaged"
+              },
+              "parameters": [
+                "Link",
+                "Health",
+                "="
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Flash::FlashColor::Flash"
+              },
+              "parameters": [
+                "Link",
+                "FlashColor",
+                "0.5",
+                "\"155;155;155\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "CameraShake::ShakeCamera"
+              },
+              "parameters": [
+                "",
+                "0.4",
+                "0.1",
+                "0.1",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "AddForceAL"
+              },
+              "parameters": [
+                "Link",
+                "AngleBetweenPositions(Link.X(),Link.Y(),Enemies.X(),Enemies.Y())+180",
+                "2000",
+                "0"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "Health::Health::IsDead"
+          },
+          "parameters": [
+            "Link",
+            "Health",
+            ""
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Scene"
+          },
+          "parameters": [
+            "",
+            "\"Untitled scene\"",
             ""
           ]
         }
@@ -4233,7 +5634,7 @@
           "actions": [
             {
               "type": {
-                "value": "Tween::TweenBehavior::AddObjectPositionXTween2"
+                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
               },
               "parameters": [
                 "Camera",
@@ -4264,7 +5665,7 @@
           "actions": [
             {
               "type": {
-                "value": "Tween::TweenBehavior::AddObjectPositionXTween2"
+                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
               },
               "parameters": [
                 "Camera",
@@ -4277,26 +5678,6 @@
               ]
             }
           ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": []
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": []
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": []
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": []
         }
       ]
     },
@@ -4361,6 +5742,54 @@
             "Tween",
             "\"Transition\""
           ]
+        },
+        {
+          "type": {
+            "value": "Delete"
+          },
+          "parameters": [
+            "Enemies",
+            ""
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::ForEach",
+          "object": "spawnEnemy",
+          "conditions": [
+            {
+              "type": {
+                "value": "IsOnScreen::InOnScreen::IsOnScreen"
+              },
+              "parameters": [
+                "spawnEnemy",
+                "InOnScreen",
+                "0",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CreateByName"
+              },
+              "parameters": [
+                "",
+                "spawnEnemy",
+                "spawnEnemy.Enemy",
+                "spawnEnemy.X()",
+                "spawnEnemy.Y()",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": []
         }
       ]
     },
@@ -4528,6 +5957,35 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::Name"
+              },
+              "parameters": [
+                "Link",
+                "Animation",
+                "contains",
+                "\"Attack\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetStringObjectVariable"
+              },
+              "parameters": [
+                "Link",
+                "Action",
+                "=",
+                "\"Idle\""
+              ]
+            }
+          ]
         }
       ]
     },
@@ -4589,6 +6047,48 @@
             "Link.X()",
             "=",
             "Link.Y()-16"
+          ]
+        },
+        {
+          "type": {
+            "value": "SetNumberObjectVariable"
+          },
+          "parameters": [
+            "Link",
+            "Attack",
+            "=",
+            "1"
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberObjectVariable"
+              },
+              "parameters": [
+                "Link",
+                "Attack",
+                "<",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberObjectVariable"
+              },
+              "parameters": [
+                "Link",
+                "Attack",
+                "=",
+                "1"
+              ]
+            }
           ]
         }
       ]
@@ -4666,6 +6166,402 @@
           ]
         }
       ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "AnimatableCapability::AnimatableBehavior::Name"
+          },
+          "parameters": [
+            "Link",
+            "Animation",
+            "contains",
+            "\"Attack\""
+          ]
+        },
+        {
+          "type": {
+            "value": "Sprite"
+          },
+          "parameters": [
+            "Link",
+            ">=",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "SetStringObjectVariable"
+          },
+          "parameters": [
+            "Link",
+            "Action",
+            "=",
+            "\"Idle\""
+          ]
+        },
+        {
+          "type": {
+            "value": "Create"
+          },
+          "parameters": [
+            "",
+            "AttackBox",
+            "0",
+            "0",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "OpacityCapability::OpacityBehavior::SetValue"
+          },
+          "parameters": [
+            "AttackBox",
+            "Opacity",
+            "=",
+            "100"
+          ]
+        },
+        {
+          "type": {
+            "value": "ResetObjectTimer"
+          },
+          "parameters": [
+            "AttackBox",
+            "\"Delect\"\n"
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::Name"
+              },
+              "parameters": [
+                "Link",
+                "Animation",
+                "contains",
+                "\"Down\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "AttackBox",
+                "=",
+                "Link.X()",
+                "=",
+                "Link.Y()+12"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetAngle"
+              },
+              "parameters": [
+                "AttackBox",
+                "=",
+                "90"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::Name"
+              },
+              "parameters": [
+                "Link",
+                "Animation",
+                "contains",
+                "\"Right\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "AttackBox",
+                "=",
+                "Link.X()+12",
+                "=",
+                "Link.Y()"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::Name"
+              },
+              "parameters": [
+                "Link",
+                "Animation",
+                "contains",
+                "\"Left\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "AttackBox",
+                "=",
+                "Link.X()+12",
+                "=",
+                "Link.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetAngle"
+              },
+              "parameters": [
+                "AttackBox",
+                "=",
+                "180"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::Name"
+              },
+              "parameters": [
+                "Link",
+                "Animation",
+                "contains",
+                "\"Up\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "AttackBox",
+                "=",
+                "Link.X()",
+                "=",
+                "Link.Y()-12"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetAngle"
+              },
+              "parameters": [
+                "AttackBox",
+                "=",
+                "270"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "CompareObjectTimer"
+          },
+          "parameters": [
+            "AttackBox",
+            "\"Delect\"\n",
+            ">=",
+            "0.2"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Delete"
+          },
+          "parameters": [
+            "AttackBox",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "CollisionNP"
+          },
+          "parameters": [
+            "AttackBox",
+            "redOctorok",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "AddForceAL"
+          },
+          "parameters": [
+            "redOctorok",
+            "AngleBetweenPositions(Link.X(),Link.Y(),redOctorok.X(),redOctorok.Y())",
+            "96",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "ResetObjectTimer"
+          },
+          "parameters": [
+            "redOctorok",
+            "\"Knockback\""
+          ]
+        },
+        {
+          "type": {
+            "value": "Health::Health::Hit"
+          },
+          "parameters": [
+            "redOctorok",
+            "Health",
+            "Link.Attack",
+            "",
+            "",
+            ""
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Health::Health::IsDead"
+              },
+              "parameters": [
+                "redOctorok",
+                "Health",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "Enemies",
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "CompareObjectTimer"
+          },
+          "parameters": [
+            "redOctorok",
+            "\"Knockback\"",
+            ">=",
+            "0"
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::Or"
+          },
+          "parameters": [],
+          "subInstructions": [
+            {
+              "type": {
+                "value": "CompareObjectTimer"
+              },
+              "parameters": [
+                "redOctorok",
+                "\"Knockback\"",
+                ">=",
+                "0.6"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Arreter"
+          },
+          "parameters": [
+            "redOctorok"
+          ]
+        },
+        {
+          "type": {
+            "value": "RemoveObjectTimer"
+          },
+          "parameters": [
+            "Enemies",
+            "\"Knockback\""
+          ]
+        }
+      ]
     }
   ],
   "layers": [
@@ -4712,9 +6608,46 @@
           "booleanParameters": {}
         }
       ]
+    },
+    {
+      "ambientLightColorB": 200,
+      "ambientLightColorG": 200,
+      "ambientLightColorR": 200,
+      "camera3DFarPlaneDistance": 10000,
+      "camera3DFieldOfView": 45,
+      "camera3DNearPlaneDistance": 3,
+      "cameraType": "",
+      "followBaseLayerCamera": false,
+      "isLightingLayer": false,
+      "isLocked": false,
+      "name": "HUD",
+      "renderingType": "",
+      "visibility": true,
+      "cameras": [],
+      "effects": [
+        {
+          "effectType": "Scene3D::HemisphereLight",
+          "name": "3D Light",
+          "doubleParameters": {
+            "elevation": 45,
+            "intensity": 1,
+            "rotation": 0
+          },
+          "stringParameters": {
+            "groundColor": "64;64;64",
+            "skyColor": "255;255;255",
+            "top": "Y-"
+          },
+          "booleanParameters": {}
+        }
+      ]
     }
   ],
   "behaviorsSharedData": [
+    {
+      "name": "AdvancedProjectile",
+      "type": "AdvancedProjectile::AdvancedProjectile"
+    },
     {
       "name": "Animation",
       "type": "AnimatableCapability::AnimatableBehavior"
@@ -4728,8 +6661,20 @@
       "type": "EffectCapability::EffectBehavior"
     },
     {
+      "name": "FireBullet",
+      "type": "FireBullet::FireBullet"
+    },
+    {
+      "name": "FlashColor",
+      "type": "Flash::FlashColor"
+    },
+    {
       "name": "Flippable",
       "type": "FlippableCapability::FlippableBehavior"
+    },
+    {
+      "name": "Health",
+      "type": "Health::Health"
     },
     {
       "name": "InOnScreen",
@@ -4746,6 +6691,10 @@
     {
       "name": "Scale",
       "type": "ScalableCapability::ScalableBehavior"
+    },
+    {
+      "name": "StayOnScreen",
+      "type": "StayOnScreen::StayOnScreen"
     },
     {
       "name": "Text",

@@ -278,7 +278,7 @@
       {
         "file": "assets/NewSprite7.png",
         "kind": "image",
-        "metadata": "{\"extension\":\".png\"}",
+        "metadata": "{\"extension\":\".png\",\"localFilePath\":\"assets/NewSprite7.png\"}",
         "name": "NewSprite7",
         "smoothed": false,
         "userAdded": false
@@ -605,6 +605,118 @@
         "name": "AttackDown4",
         "smoothed": false,
         "userAdded": false
+      },
+      {
+        "file": "assets/NewSprite10.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite10",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/NewSprite11.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite11",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/NewSprite12.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite12",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/NewSprite13.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite13",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/NewSprite14.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite14",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/NewSprite15.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite15",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/NewSprite16.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite16",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/tiled_Tiled Empty UI Heart.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "tiled_Tiled Empty UI Heart.png",
+        "smoothed": false,
+        "userAdded": false,
+        "origin": {
+          "identifier": "https://asset-resources.gdevelop.io/public-resources/Resource bars/pixel art/688519c5bb4abaf5805518633f2ff810928e29164497fb5c13dabf97044be843_tiled_Tiled Empty UI Heart.png",
+          "name": "tiled_Tiled Empty UI Heart.png"
+        }
+      },
+      {
+        "file": "assets/tiled_Tiled Filler UI Heart.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "tiled_Tiled Filler UI Heart.png",
+        "smoothed": false,
+        "userAdded": false,
+        "origin": {
+          "identifier": "https://asset-resources.gdevelop.io/public-resources/Resource bars/pixel art/5b5c6c85ec4e1f5b6688be565c9a06920a76ee191915738afd61da1481fd6493_tiled_Tiled Filler UI Heart.png",
+          "name": "tiled_Tiled Filler UI Heart.png"
+        }
+      },
+      {
+        "file": "assets/tiled_Tiled Filler UI Heart.png2.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\",\"pskl\":{}}",
+        "name": "tiled_Tiled Filler UI Heart.png2",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/tiled_Tiled Filler UI Heart.png3.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\",\"pskl\":{}}",
+        "name": "tiled_Tiled Filler UI Heart.png3",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/tiled_Tiled Empty UI Heart.png2.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\",\"pskl\":{}}",
+        "name": "tiled_Tiled Empty UI Heart.png2",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/NewSprite17.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite17",
+        "smoothed": false,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -617,6 +729,11 @@
   "variables": [
     {
       "name": "StopAnimations",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "CanAttack",
       "type": "boolean",
       "value": false
     }
@@ -636,6 +753,34 @@
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
       "referenceTo": "/eventsFunctionsExtensions/autotyping"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/eventsFunctionsExtensions/health"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/eventsFunctionsExtensions/tiledunitsbar"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/eventsFunctionsExtensions/flash"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/eventsFunctionsExtensions/camerashake"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/eventsFunctionsExtensions/stayonscreen"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/eventsFunctionsExtensions/advancedprojectile"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/eventsFunctionsExtensions/firebullet"
     }
   ],
   "externalLayouts": []
